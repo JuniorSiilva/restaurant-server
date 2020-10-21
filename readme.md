@@ -1,17 +1,24 @@
-## About Laravel
+# Projeto Restaurante (Servidor)
 
-Complete Skeleton API built with Laravel framework, TymonJWT, etc.
+Este projeto tem como foco aprender e evoluir conceitos voltados ao PHP/Laravel e desenvolvimento de novas técnicas de aprendizado.
 
-## Built With
+Alguns dos pontos trabalhados:
 
-- [Laravel](https://laravel.com/)
-- [Spatie Activity Log](https://github.com/spatie/laravel-activitylog)
-- [Spatie Laravel Permission](https://github.com/spatie/laravel-permission)
-- [Tymon jwt-auth](http://jwt-auth.readthedocs.io/en/docs/)
+  - Autenticação com sanctum
+  - MongoDB para armazenamento de numeros registros
+  - Implementação de sistema multi-tenancy
+  - Permissões utilizando [spatie/activitylog](https://github.com/spatie/laravel-activitylog)
+  - Websockets, queues, events e jobs
+ 
+# Requisitos
 
-## Installation
+- PHP 7.2^
+- Extensão PHP imagick
+- Extensão PHP mongodb
+- Extensão PHP redis/predis
 
-After downloading the skeleton, run the following commands:
+
+# Instalação
 
 To install the project dependencies:
 ``` bash
@@ -28,14 +35,11 @@ To generate Laravel app key:
 php artisan key:generate
 ```
 
-To generate JWT secret key:
-``` bash
-php artisan jwt:secret
-```
-
 And to finish, create database structure:
 ``` bash
-php artisan migrate
+php artisan migrate:refresh --database="root" --path="database/migrations/root"
+
+php artisan migrate:refresh --database="mongodb" --path="database/migrations/root/mongo"
 ```
 
 ## License
